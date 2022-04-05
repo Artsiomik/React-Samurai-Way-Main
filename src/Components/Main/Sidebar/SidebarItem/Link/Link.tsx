@@ -8,7 +8,7 @@ type PropsType = {
 export const Link = (props:PropsType) => {
     return (
         <>
-            <a href="#" className={s.link}>{props.link}</a>
+            <a href={props.link} className={s.link}>{props.link}</a>
         </>
     )
 }
