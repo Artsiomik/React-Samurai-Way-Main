@@ -1,0 +1,16 @@
+.button {
+    display: flex;
+    justify-content: end;
+    margin: 20px 57px 0 0;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.send {
+    font-size: 25px;
+    padding: 5px 50px;
+    font-weight: bold;
+    color: #000;
+    background-color: crimson;
+    border-radius: 6px;
+    box-shadow: 4px 6px 4px #000;
+}

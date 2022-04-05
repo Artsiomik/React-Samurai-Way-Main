@@ -1,0 +1,25 @@
+.header {
+    display: flex;
+    min-height: 100px;
+    background-color: rgba(255, 228, 196, 0.65);
+}
+.title {
+    font-size: 50px;
+    margin: 20px 0 0 400px;
+    font-family:'Courier New', Courier, monospace;
+    text-shadow: 1px 6px 5px;
+    color: crimson;
+}
+.logo img {
+    margin: 12px 0 0 20px;
+    width: 100px;
+    height: 70px;
+}
+.text {
+    margin: 20px 0;
+    font-size: 40px;
+    font-style: italic;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-shadow: 1px 6px 5px #000;
+    color: crimson;
+}

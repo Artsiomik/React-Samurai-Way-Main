@@ -1,0 +1,9 @@
+.icon {
+    width: 50px;
+    margin: 0 10px 0 0;
+    border: 1px solid #000;
+    border-radius: 30%;
+    background: #fff;
+    box-shadow: 4px 4px 2px #000;
+}
+
