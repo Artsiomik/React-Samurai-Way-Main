@@ -1,6 +1,6 @@
 import React from "react";
 import s from "./Userimage.module.css";
-import Im from "../../../../Images/IMG_3192.JPG";
+import Im from "../../../../Images/IMG_3192.jpg";
 
 export const Userimage = () => {
     return (

@@ -4,12 +4,16 @@ import {Avatar} from "./Avatar/Avatar";
 import {Arrow} from "./Arrow/Arrow";
 import {Text} from "./Text/Text";
 
-export const Message = (props) => {
+type PropsType = {
+    text: string
+}
+
+export const Message = (props:PropsType) => {
     return (
         <div className={s.messages}>
             <Avatar/>
             <Arrow/>
-            <Text message={props.text}/>}
+            <Text message={props.text}/>
         </div>
     )
 }
