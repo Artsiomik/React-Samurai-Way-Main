@@ -5,9 +5,9 @@ import {Myposts} from "./Myposts/Myposts";
 
 export const Profile = () => {
     return (
-        <section className={s.content}>
+        <>
             <InfoUser/>
             <Myposts/>
-        </section>
+        </>
     )
 }
