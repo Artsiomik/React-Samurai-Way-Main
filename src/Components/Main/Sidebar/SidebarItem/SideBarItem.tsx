@@ -1,13 +1,14 @@
-import React from "react";
-import {Icon} from "./Icon/Icon";
-import {Link} from "./Link/Link";
+import React from 'react';
+import {Icon} from './Icon/Icon';
+import {Link} from './Link/Link';
+
 
 type PropsType = {
     picture: string
     link: string
 }
 
-export const SideBarItem = (props:PropsType) => {
+export const SideBarItem = (props: PropsType) => {
     return (
         <li>
             <Icon picture={props.picture}/>

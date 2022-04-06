@@ -1,4 +1,21 @@
-.text {
-    color: white;
+.title {
+    margin: 5px 0 60px 20px;
+    font-size: 50px;
+    font-style: italic;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-shadow: 1px 6px 5px #000;
+    color: rgba(255, 127, 80);
 }
 
+.content {
+    display: flex;
+}
+
+.items {
+    margin: 0 50px 0 10px;
+    padding: 20px 20px 50px 20px;
+    width: 300px;
+    height: 100%;
+    box-shadow: 4px 2px 6px #000;
+    background-color: rgba(255, 127, 80, 0.5);
+}

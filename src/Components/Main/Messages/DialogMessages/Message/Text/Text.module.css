@@ -1,13 +1,13 @@
 .text {
     word-wrap: break-word;
-    width: 600px;
+    width: 350px;
     margin: 0 0 0 50px;
     padding: 10px;
-    font-size: 20px;
+    font-size: 18px;
     color: #000;
-    font-weight: 550;
+    font-weight: bold;
     font-family: 'Courier New', Courier, monospace;
-    /*text-shadow: 4px 4px 5px #000;*/
     border: 3px inset gold;
+    border-radius: 10px;
     background-color: antiquewhite;
 }

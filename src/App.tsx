@@ -10,7 +10,7 @@ export const App = () => { // App это КОМПОНЕНТА которая в�
             <div className="wrapper">
                 <Header/>
                 <Main/>
-                <Footer/>
+                {/*<Footer/>*/}
             </div>
         </BrowserRouter>
     )
