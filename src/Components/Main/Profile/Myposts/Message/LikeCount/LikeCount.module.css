@@ -1,0 +1,12 @@
+.heart {
+    width: 30px;
+    margin: 0 5px 100px 5px;
+}
+
+.count{
+    padding: 0 5px;
+    font-size: 16px;
+    border: 1px solid #000000;
+    color: white;
+    background-color: coral;
+}
