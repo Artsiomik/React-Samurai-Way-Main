@@ -1,6 +1,6 @@
 import React from "react";
 import avatar from '../../../../../Images/companion.jpeg';
-import s from './Avatar.module.css'
+import style from './Avatar.module.css'
 
 type PropsType = {
     text: string
@@ -9,7 +9,7 @@ type PropsType = {
 export const Avatar = () => {
     return (
         <>
-            <img className={s.avatar} src={avatar} alt=""/>
+            <img className={style.avatar} src={avatar} alt=""/>
         </>
     )
 }

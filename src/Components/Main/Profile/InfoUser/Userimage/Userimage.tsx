@@ -1,10 +1,10 @@
 import React from "react";
-import s from "./Userimage.module.css";
+import style from "./Userimage.module.css";
 import Im from "../../../../Images/IMG_3192.jpg";
 
 export const Userimage = () => {
     return (
-        <div className={s.userimage}>
+        <div className={style.userimage}>
             <img src={Im} alt=""/>
         </div>
     )

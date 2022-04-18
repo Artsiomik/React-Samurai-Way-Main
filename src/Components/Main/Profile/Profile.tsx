@@ -1,13 +1,24 @@
-import React from "react";
-import s from './Profile.module.css';
-import {InfoUser} from "./InfoUser/InfoUser";
-import {Myposts} from "./Myposts/Myposts";
+import React from 'react';
+import {InfoUser} from './InfoUser/InfoUser';
+import {Myposts} from './Myposts/Myposts';
 
-export const Profile = () => {
+
+
+type PostsDataType = {
+    postsData: Array<PostArray>
+}
+type PostArray = {
+    id: number
+    post: string
+    count: number
+}
+
+export const Profile = (props: PostsDataType) => {
+
     return (
         <>
             <InfoUser/>
-            <Myposts/>
+            <Myposts postsData={props.postsData} />
         </>
     )
 }

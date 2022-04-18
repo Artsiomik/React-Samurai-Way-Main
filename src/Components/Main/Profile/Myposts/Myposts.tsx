@@ -1,28 +1,31 @@
 import React from 'react';
-import s from './Myposts.module.css';
+import style from './Myposts.module.css';
 import {Textarea} from './Textarea/Textarea';
 import {Button} from './Button/Button';
 import {Message} from './Message/Message';
 
+type PostsDataType = {
+    postsData: Array<PostArray>
+}
+type PostArray = {
+    id: number
+    post: string
+    count: number
+}
 
-export const Myposts = () => {
+export const Myposts = (props:PostsDataType) => {
 
-    let postsData = [
-        {id: 1, post: 'Hey, why nobody love me?', count: 23},
-        {id: 2, post: 'It is our new program! Hey!', count: 11},
-        {id: 3, post: 'Life is good! And live well!', count: 48},
-    ]
 
-    let newMyPostsElements = postsData.map((el)=> {
-        return <Message text={el.post} id={el.id} likeCount={el.count}/>
+    let newMyPostsElements = props.postsData.map((m) => {
+        return <Message text={m.post} id={m.id} likeCount={m.count}/>
     })
 
     return (
-        <div className={s.myposts}>
-            <div className={s.title}>My posts</div>
+        <div className={style.myposts}>
+            <div className={style.title}>My posts</div>
             <Textarea/>
             <Button/>
-            <div className={s.mypostsout}>
+            <div className={style.mypostsout}>
                 {newMyPostsElements}
             </div>
         </div>

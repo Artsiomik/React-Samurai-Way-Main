@@ -1,34 +1,34 @@
 import React from 'react';
-import s from './Dialogs.module.css'
+import style from './Dialogs.module.css'
 import {DialogItem} from './DialogItems/DialogItem';
-import {DialogMessages} from './DialogMessages/DialogMessages';
-import {NavLink} from 'react-router-dom';
+import {DialogMessages, messageDataType} from './DialogMessages/DialogMessages';
 
+type DialogsDataType = {
+    dialogsData: Array<DialogsDataArray>
+    dialogMessages: Array<messageDataType>
+}
 
-export const Dialogs = () => {
+type DialogsDataArray = {
+    id: number
+    name: string
+}
 
-    let dialogsData = [
-        {id: 1, name: 'Dimych'},
-        {id: 2, name: 'Andrey'},
-        {id: 3, name: 'Sveta'},
-        {id: 4, name: 'Kiril'},
-        {id: 5, name: 'Gena'},
-        {id: 6, name: 'Valera'},
-    ]
-    let dialogsItemElements = dialogsData.map((dialog)=> {
+export const Dialogs = (props: DialogsDataType) => {
+
+    let dialogsItemElements = props.dialogsData.map((dialog)=> {
         return (
             <DialogItem name={dialog.name} id={dialog.id}/>
         )
     })
 
     return (
-        <div className={s.dialogs}>
-            <p className={s.title}>Dialogs</p>
-            <div className={s.content}>
-                <div className={s.items}>
+        <div className={style.dialogs}>
+            <p className={style.title}>Dialogs</p>
+            <div className={style.content}>
+                <div className={style.items}>
                     {dialogsItemElements}
                 </div>
-                <DialogMessages/>
+                <DialogMessages dialogMessages={props.dialogMessages}/>
             </div>
         </div>
     )

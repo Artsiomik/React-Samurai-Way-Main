@@ -1,5 +1,5 @@
 import React from "react";
-import s from "./Text.module.css";
+import style from "./Text.module.css";
 
 type propsType = {
     text:string
@@ -9,7 +9,7 @@ type propsType = {
 export const Text = (props:propsType) => {
     return (
        <>
-           <p className={s.text}>{props.text}</p>
+           <p className={style.text}>{props.text}</p>
        </>
     )
 }

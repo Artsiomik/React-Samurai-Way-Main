@@ -1,11 +1,11 @@
 import React from "react";
 import './Button.module.css'
-import s from "./Button.module.css";
+import style from "./Button.module.css";
 
 export const Button = () => {
     return (
-            <div className={s.button}>
-                <button className={s.send}>Send</button>
+            <div className={style.button}>
+                <button className={style.send}>Send</button>
             </div>
 
     )
