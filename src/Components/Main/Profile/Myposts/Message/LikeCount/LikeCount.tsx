@@ -6,7 +6,7 @@ type PropsType = {
     like: number
 }
 
-export const Count = (props: PropsType) => {
+export const LikeCount = (props: PropsType) => {
     return (
         <>
             <img className={style.heart} src={heart} alt=""/>

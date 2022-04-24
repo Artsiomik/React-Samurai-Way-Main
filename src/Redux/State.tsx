@@ -1,5 +1,6 @@
 import React from 'react';
 import {messageDataType} from '../Components/Main/Messages/DialogMessages/DialogMessages';
+import {rerenderEntireTree} from '../Render';
 
 export type StatePropsType = {
     postsData: Array<PostArray>
@@ -17,12 +18,12 @@ type DialogsArray = {
     name: string
 }
 
-
 export let state: StatePropsType = {
     postsData: [
         {id: 1, post: 'Hey, why nobody love me?', count: 23},
         {id: 2, post: 'It is our new program! Hey!', count: 11},
         {id: 3, post: 'Life is good! And live well!', count: 48},],
+
     dialogsData: [
         {id: 1, name: 'Dimych'},
         {id: 2, name: 'Andrey'},
@@ -31,6 +32,7 @@ export let state: StatePropsType = {
         {id: 5, name: 'Gena'},
         {id: 6, name: 'Valera'},
     ],
+
     dialogMessages: [
         {
             id: 1,
@@ -66,4 +68,14 @@ export let state: StatePropsType = {
         {id: 8, message: 'Hope to hear back from you and I hope you have a great day!', author: 'componion'},
         {id: 9, message: 'give my kind/best regards to your family', author: 'own'},
     ]
+}
+
+export const addPost = (postMessage: string) => {
+    const newMessage: PostArray = {
+        id: 4,
+        post: postMessage,
+        count: 0,
+}
+    state.postsData.push(newMessage)
+    rerenderEntireTree(state)
 }

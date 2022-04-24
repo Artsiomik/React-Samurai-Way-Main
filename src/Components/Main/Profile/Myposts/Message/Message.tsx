@@ -3,7 +3,7 @@ import style from "./Message.module.css";
 import {Avatar} from "./Avatar/Avatar";
 import {Arrow} from "./Arrow/Arrow";
 import {Text} from "./Text/Text";
-import {Count} from './LikeCount/LikeCount';
+import {LikeCount} from './LikeCount/LikeCount';
 
 type PropsType = {
     text: string
@@ -18,7 +18,7 @@ export const Message = (props:PropsType) => {
             <Avatar/>
             <Arrow/>
             <Text message={props.text}/>
-            <Count like={props.likeCount}/>
+            <LikeCount like={props.likeCount}/>
         </div>
     )
 }

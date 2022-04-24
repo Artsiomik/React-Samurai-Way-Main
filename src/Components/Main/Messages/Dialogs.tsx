@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useRef} from 'react';
 import style from './Dialogs.module.css'
 import {DialogItem} from './DialogItems/DialogItem';
 import {DialogMessages, messageDataType} from './DialogMessages/DialogMessages';
@@ -21,6 +21,12 @@ export const Dialogs = (props: DialogsDataType) => {
         )
     })
 
+    const addMessagetRef = useRef<HTMLTextAreaElement | null>(null)
+
+    const addMessage = () => {
+        if (addMessagetRef.current) alert(addMessagetRef.current.value)
+    }
+
     return (
         <div className={style.dialogs}>
             <p className={style.title}>Dialogs</p>
@@ -29,6 +35,12 @@ export const Dialogs = (props: DialogsDataType) => {
                     {dialogsItemElements}
                 </div>
                 <DialogMessages dialogMessages={props.dialogMessages}/>
+            </div>
+            <form className={style.form}>
+            <textarea className={style.textarea} ref={addMessagetRef} name="text"> my message...</textarea>
+            </form>
+            <div className={style.button}>
+                <button onClick={addMessage} className={style.send}>Send</button>
             </div>
         </div>
     )
