@@ -76,8 +76,8 @@ h6 {
 /*--------------------*/
 
 .wrapper {
-    background-image: url('BgB.jpg');
-    background-attachment: scroll;
+    background-image: url('Background.png');
+    background-attachment: fixed;
     max-width: 1440px;
     margin: 0 auto;
 }
