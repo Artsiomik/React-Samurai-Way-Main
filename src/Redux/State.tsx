@@ -1,11 +1,12 @@
 import React from 'react';
 import {messageDataType} from '../Components/Main/Messages/DialogMessages/DialogMessages';
-import {rerenderEntireTree} from '../Render';
+
 
 export type StatePropsType = {
     postsData: Array<PostArray>
     dialogsData: Array<DialogsArray>
     dialogMessages: Array<messageDataType>
+    newPostText: string
 }
 
 type PostArray = {
@@ -18,11 +19,19 @@ type DialogsArray = {
     name: string
 }
 
+let rerenderEntireTree = (tate: StatePropsType)=> {
+    console.log('')
+}
+
 export let state: StatePropsType = {
+
+    newPostText: 'change text',
+
     postsData: [
         {id: 1, post: 'Hey, why nobody love me?', count: 23},
         {id: 2, post: 'It is our new program! Hey!', count: 11},
-        {id: 3, post: 'Life is good! And live well!', count: 48},],
+        {id: 3, post: 'Life is good! And live well!', count: 48},
+    ],
 
     dialogsData: [
         {id: 1, name: 'Dimych'},
@@ -75,7 +84,16 @@ export const addPost = (postMessage: string) => {
         id: 4,
         post: postMessage,
         count: 0,
-}
+    }
     state.postsData.push(newMessage)
     rerenderEntireTree(state)
+}
+
+export const updateNewPostText = (newPostText: string) => {
+    state.newPostText = newPostText
+    rerenderEntireTree(state)
+}
+
+export const subscribe = (observer: (state: StatePropsType) => void) => {
+    rerenderEntireTree = observer
 }
