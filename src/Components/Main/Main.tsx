@@ -8,15 +8,17 @@ import {Music} from './Music/Music';
 import {Settings} from './Settings/Settings';
 import {Route} from 'react-router-dom';
 import {messageDataType} from './Messages/DialogMessages/DialogMessages';
+import {ActionTypes} from '../../Redux/State';
 
 
 type MainType = {
     postsData: Array<MainPostArray>
     dialogsData: Array<MainDialogsArray>
     dialogMessages: Array<messageDataType>
-    addPost: (postMessage: string)=> void
+    // addPost: (postMessage: string)=> void
+    // updateNewPostText: (newText: string)=> void
     newPostText: string
-    updateNewPostText: (newText: string)=> void
+    dispatch: (action: ActionTypes) => void
 }
 
 type MainPostArray = {
@@ -37,8 +39,9 @@ export const Main = (props: MainType) => {
             <SideBar/>
             <section className={style.content}>
                 <Route path="/Profile" render={() => <Profile newPostText={props.newPostText}
-                                                              updateNewPostText={props.updateNewPostText}
-                                                              addPost={props.addPost}
+                                                              dispatch={props.dispatch}
+                                                              // updateNewPostText={props.updateNewPostText}
+                                                              // addPost={props.addPost}
                                                               postsData={props.postsData}/>}/>
                 <Route path="/Messages" render={() => <Dialogs dialogsData={props.dialogsData}
                                                                dialogMessages={props.dialogMessages}/>}/>

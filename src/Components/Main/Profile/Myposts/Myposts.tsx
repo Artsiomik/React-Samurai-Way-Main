@@ -3,19 +3,26 @@ import style from './Myposts.module.css';
 // import {Textarea} from './Textarea/Textarea';
 // import {Button} from './Button/Button';
 import {Message} from './Message/Message';
+import {
+    ActionTypes,
+    addPostAC,
+    UpdateNewPostTextAC,
+    OnPostChangeHandlerAC
+} from '../../../../Redux/State';
 
 
 type PostsDataType = {
     postsData: Array<PostArray>
-    addPost: (postMessage: string) => void
     newPostText: string
-    updateNewPostText: (newText: string) => void
+    dispatch: (action: ActionTypes) => void
 }
 type PostArray = {
     id: number
     post: string
     count: number
 }
+
+
 
 export const Myposts = (props: PostsDataType) => {
 
@@ -26,12 +33,12 @@ export const Myposts = (props: PostsDataType) => {
 
 
     const addPost = () => {
-            props.addPost(props.newPostText)
-            props.updateNewPostText('')
+        props.dispatch(addPostAC())
+        props.dispatch(UpdateNewPostTextAC())
     }
 
-    const onPostChangeHandler = (e:ChangeEvent<HTMLTextAreaElement>) => {
-        props.updateNewPostText(e.currentTarget.value)
+    const onPostChangeHandler = (e: ChangeEvent<HTMLTextAreaElement>) => {
+        props.dispatch(OnPostChangeHandlerAC(e))
     }
 
     return (
@@ -42,7 +49,8 @@ export const Myposts = (props: PostsDataType) => {
                       value={props.newPostText}/>
             <div className={style.button}>
                 <button onClick={addPost}
-                        className={style.send}>Send</button>
+                        className={style.send}>Send
+                </button>
             </div>
             <div className={style.mypostsout}>
                 {newMyPostsElements}
