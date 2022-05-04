@@ -1,5 +1,8 @@
 import React, {ChangeEvent} from 'react';
 import {messageDataType} from '../Components/Main/Messages/DialogMessages/DialogMessages';
+import {postDataReducer} from './Reducers/PostDataReducer';
+import {dialogMessagesReducer} from './Reducers/DialogMessagesReducer';
+import {dialogsDataReducer} from './Reducers/DialogsDataReducer';
 
 export type StatePropsType = {
     postsData: Array<PostArray>
@@ -9,12 +12,12 @@ export type StatePropsType = {
     newMessageText: string
 }
 
-type PostArray = {
+export type PostArray = {
     id: number
     post: string
     count: number
 }
-type DialogsArray = {
+export type DialogsArray = {
     id: number
     name: string
 }
@@ -83,9 +86,9 @@ export const onMessageChangeHandlerAC = (e: ChangeEvent<HTMLTextAreaElement>): A
 export const store: StoreType = {
     _state: {
 
-        newPostText: 'change text',
+        newPostText: '',
 
-        newMessageText: 'change text',
+        newMessageText: '',
 
         postsData: [
             {id: 1, post: 'Hey, why nobody love me?', count: 23},
@@ -148,26 +151,12 @@ export const store: StoreType = {
         this._callSubscriber = observer
     },
     dispatch(action) {
-        if (action.type === 'ADD-POST') {
-            const newMessage: PostArray = {
-                id: 4,
-                post: action.postMessage,
-                count: 0,
-            }
-            this._state.postsData.push(newMessage)
-            this._callSubscriber()
-        } else if (action.type === 'UPDATE-NEW-POST-TEXT') {
-            this._state.newPostText = action.newPostText
-            this._callSubscriber()
-        } else if (action.type === 'UPDATE-NEW-MESSAGE-TEXT') {
-            this._state.newMessageText = action.newMessageText
-            this._callSubscriber()
-        } else if (action.type === 'SEND-MESSAGE') {
-            const messageText = this._state.newMessageText
-            this._state.newMessageText = ''
-            this._state.dialogMessages.push({id: 10, message: messageText, author: 'componion'})
-            this._callSubscriber()
-        }
+
+        this._state = dialogMessagesReducer(this._state, action)
+        this._state = postDataReducer(this._state, action)
+        this._state = dialogsDataReducer(this._state, action)
+
+        this._callSubscriber()
     }
 }
 

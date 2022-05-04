@@ -18,13 +18,13 @@ type DialogsDataArray = {
 
 export const Dialogs = (props: DialogsDataType) => {
 
-    let dialogsItemElements = props.dialogsData.map((dialog)=> {
+    let dialogsItemElements = props.dialogsData.map((dialog) => {
         return (
             <DialogItem name={dialog.name} id={dialog.id}/>
         )
     })
 
-    const sendMessage = () => {
+    const sendMessageOnClickHandler = () => {
         props.dispatch(sendMessageAC())
         props.dispatch(UpdateNewMessageTextAC())
     }
@@ -42,10 +42,15 @@ export const Dialogs = (props: DialogsDataType) => {
                 <DialogMessages dialogMessages={props.dialogMessages}/>
             </div>
             <form className={style.form}>
-            <textarea className={style.textarea} onChange={onMessageChangeHandler} value={props.newMessageText} name="text"> my message...</textarea>
+            <textarea className={style.textarea}
+                      onChange={onMessageChangeHandler}
+                      value={props.newMessageText}
+                      placeholder={'my message...'}/>
             </form>
             <div className={style.button}>
-                <button onClick={sendMessage} className={style.send}>Send</button>
+                <button onClick={sendMessageOnClickHandler}
+                        className={style.send}>Send
+                </button>
             </div>
         </div>
     )

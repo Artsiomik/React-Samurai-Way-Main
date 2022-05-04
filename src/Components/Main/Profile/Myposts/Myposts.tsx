@@ -23,7 +23,6 @@ type PostArray = {
 }
 
 
-
 export const Myposts = (props: PostsDataType) => {
 
     const newMyPostsElements = props.postsData.map((m) => {
@@ -45,8 +44,8 @@ export const Myposts = (props: PostsDataType) => {
         <div className={style.myposts}>
             <div className={style.title}>My posts</div>
             <textarea onChange={onPostChangeHandler}
-                      name="text"
-                      value={props.newPostText}/>
+                      value={props.newPostText}
+                      placeholder={'Enter your post...'}/>
             <div className={style.button}>
                 <button onClick={addPost}
                         className={style.send}>Send
