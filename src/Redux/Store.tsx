@@ -72,17 +72,6 @@ export const UpdateNewMessageTextAC = (): ActionTypes => {
     }
 }
 
-export const OnPostChangeHandlerAC = (e: ChangeEvent<HTMLTextAreaElement>): ActionTypes => {
-    return {
-        type: 'UPDATE-NEW-POST-TEXT', newPostText: e.currentTarget.value
-    }
-}
-export const onMessageChangeHandlerAC = (e: ChangeEvent<HTMLTextAreaElement>): ActionTypes => {
-    return {
-        type: 'UPDATE-NEW-MESSAGE-TEXT', newMessageText: e.currentTarget.value
-    }
-}
-
 export const store: StoreType = {
     _state: {
 

@@ -1,4 +1,5 @@
-import {ActionTypes, StatePropsType} from '../State'
+import {ActionTypes, StatePropsType} from '../Store'
+import {ChangeEvent} from 'react';
 
 
 export const dialogMessagesReducer = (state: StatePropsType, action: ActionTypes) => {
@@ -13,5 +14,11 @@ export const dialogMessagesReducer = (state: StatePropsType, action: ActionTypes
           return state
     default:
       return state
+  }
+}
+
+export const onMessageChangeHandlerAC = (e: ChangeEvent<HTMLTextAreaElement>): ActionTypes => {
+  return {
+    type: 'UPDATE-NEW-MESSAGE-TEXT', newMessageText: e.currentTarget.value
   }
 }

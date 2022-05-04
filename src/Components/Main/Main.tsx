@@ -8,7 +8,7 @@ import {Music} from './Music/Music';
 import {Settings} from './Settings/Settings';
 import {Route} from 'react-router-dom';
 import {messageDataType} from './Messages/DialogMessages/DialogMessages';
-import {ActionTypes} from '../../Redux/State';
+import {ActionTypes} from '../../Redux/Store';
 
 
 type MainType = {

@@ -1,5 +1,5 @@
 import reportWebVitals from './reportWebVitals';
-import {StatePropsType, store} from './Redux/State';
+import {StatePropsType, store} from './Redux/Store';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';

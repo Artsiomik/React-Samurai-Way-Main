@@ -3,13 +3,8 @@ import style from './Myposts.module.css';
 // import {Textarea} from './Textarea/Textarea';
 // import {Button} from './Button/Button';
 import {Message} from './Message/Message';
-import {
-    ActionTypes,
-    addPostAC,
-    UpdateNewPostTextAC,
-    OnPostChangeHandlerAC
-} from '../../../../Redux/State';
-
+import {ActionTypes, addPostAC, UpdateNewPostTextAC} from '../../../../Redux/Store';
+import {OnPostChangeHandlerAC} from '../../../../Redux/Reducers/PostDataReducer'
 
 type PostsDataType = {
     postsData: Array<PostArray>

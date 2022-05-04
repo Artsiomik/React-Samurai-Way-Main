@@ -1,7 +1,7 @@
 import './App.css';
 import {Header} from './Components/Header/Header';
 import {Main} from './Components/Main/Main';
-import {StatePropsType, ActionTypes} from './Redux/State';
+import {StatePropsType, ActionTypes} from './Redux/Store';
 
 
 type AppType = {

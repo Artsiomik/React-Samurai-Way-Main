@@ -1,4 +1,5 @@
-import {ActionTypes, PostArray, StatePropsType} from '../State';
+import {ActionTypes, PostArray, StatePropsType} from '../Store';
+import {ChangeEvent} from 'react';
 
 export const postDataReducer = (state: StatePropsType, action: ActionTypes) => {
 switch (action.type) {
@@ -16,4 +17,9 @@ switch (action.type) {
     default:
         return state
 }
+}
+export const OnPostChangeHandlerAC = (e: ChangeEvent<HTMLTextAreaElement>): ActionTypes => {
+    return {
+        type: 'UPDATE-NEW-POST-TEXT', newPostText: e.currentTarget.value
+    }
 }

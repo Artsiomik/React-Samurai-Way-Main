@@ -1,4 +1,4 @@
-import {ActionTypes, StatePropsType} from '../State';
+import {ActionTypes, StatePropsType} from '../Store';
 
 export const dialogsDataReducer = (state: StatePropsType, action: ActionTypes) => {
 
