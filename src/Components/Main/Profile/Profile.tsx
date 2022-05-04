@@ -24,8 +24,6 @@ export const Profile = (props: PostsDataType) => {
             <InfoUser/>
             <Myposts
                 dispatch={props.dispatch}
-                // addPost={props.addPost}
-                // updateNewPostText={props.updateNewPostText}
                 newPostText={props.newPostText}
                 postsData={props.postsData}/>
         </>

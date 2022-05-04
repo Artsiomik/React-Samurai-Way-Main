@@ -6,6 +6,7 @@ export type StatePropsType = {
     dialogsData: Array<DialogsArray>
     dialogMessages: Array<messageDataType>
     newPostText: string
+    newMessageText: string
 }
 
 type PostArray = {
@@ -36,12 +37,24 @@ type UpdateNewPostTextActionType = {
     type: 'UPDATE-NEW-POST-TEXT'
     newPostText: string
 }
+type UpdateNewMessageTextActionType = {
+    type: 'UPDATE-NEW-MESSAGE-TEXT'
+    newMessageText: string
+}
+type SendMessageActionType = {
+    type: 'SEND-MESSAGE'
+}
 
-export type ActionTypes = AddPostActionType | UpdateNewPostTextActionType
+export type ActionTypes = AddPostActionType | UpdateNewPostTextActionType | UpdateNewMessageTextActionType | SendMessageActionType
 
 export const addPostAC = (): ActionTypes => {
     return {
         type: 'ADD-POST', postMessage: store.getState().newPostText
+    }
+}
+export const sendMessageAC = (): ActionTypes => {
+    return {
+        type: 'SEND-MESSAGE'
     }
 }
 
@@ -50,10 +63,20 @@ export const UpdateNewPostTextAC = (): ActionTypes => {
         type: 'UPDATE-NEW-POST-TEXT', newPostText: ''
     }
 }
+export const UpdateNewMessageTextAC = (): ActionTypes => {
+    return {
+        type: 'UPDATE-NEW-MESSAGE-TEXT', newMessageText: ''
+    }
+}
 
-export const OnPostChangeHandlerAC = (e: ChangeEvent<HTMLTextAreaElement>) : ActionTypes => {
+export const OnPostChangeHandlerAC = (e: ChangeEvent<HTMLTextAreaElement>): ActionTypes => {
     return {
         type: 'UPDATE-NEW-POST-TEXT', newPostText: e.currentTarget.value
+    }
+}
+export const onMessageChangeHandlerAC = (e: ChangeEvent<HTMLTextAreaElement>): ActionTypes => {
+    return {
+        type: 'UPDATE-NEW-MESSAGE-TEXT', newMessageText: e.currentTarget.value
     }
 }
 
@@ -61,6 +84,8 @@ export const store: StoreType = {
     _state: {
 
         newPostText: 'change text',
+
+        newMessageText: 'change text',
 
         postsData: [
             {id: 1, post: 'Hey, why nobody love me?', count: 23},
@@ -123,7 +148,7 @@ export const store: StoreType = {
         this._callSubscriber = observer
     },
     dispatch(action) {
-        if(action.type === 'ADD-POST') {
+        if (action.type === 'ADD-POST') {
             const newMessage: PostArray = {
                 id: 4,
                 post: action.postMessage,
@@ -133,6 +158,14 @@ export const store: StoreType = {
             this._callSubscriber()
         } else if (action.type === 'UPDATE-NEW-POST-TEXT') {
             this._state.newPostText = action.newPostText
+            this._callSubscriber()
+        } else if (action.type === 'UPDATE-NEW-MESSAGE-TEXT') {
+            this._state.newMessageText = action.newMessageText
+            this._callSubscriber()
+        } else if (action.type === 'SEND-MESSAGE') {
+            const messageText = this._state.newMessageText
+            this._state.newMessageText = ''
+            this._state.dialogMessages.push({id: 10, message: messageText, author: 'componion'})
             this._callSubscriber()
         }
     }

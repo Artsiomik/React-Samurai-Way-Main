@@ -15,9 +15,8 @@ type MainType = {
     postsData: Array<MainPostArray>
     dialogsData: Array<MainDialogsArray>
     dialogMessages: Array<messageDataType>
-    // addPost: (postMessage: string)=> void
-    // updateNewPostText: (newText: string)=> void
     newPostText: string
+    newMessageText: string
     dispatch: (action: ActionTypes) => void
 }
 
@@ -40,11 +39,11 @@ export const Main = (props: MainType) => {
             <section className={style.content}>
                 <Route path="/Profile" render={() => <Profile newPostText={props.newPostText}
                                                               dispatch={props.dispatch}
-                                                              // updateNewPostText={props.updateNewPostText}
-                                                              // addPost={props.addPost}
                                                               postsData={props.postsData}/>}/>
                 <Route path="/Messages" render={() => <Dialogs dialogsData={props.dialogsData}
-                                                               dialogMessages={props.dialogMessages}/>}/>
+                                                               dialogMessages={props.dialogMessages}
+                                                               newMessageText={props.newMessageText}
+                                                               dispatch={props.dispatch}/>}/>
                 <Route path="/News" render={() => <News/>}/>
                 <Route path="/Music" render={() => <Music/>}/>
                 <Route path="/Settings" render={() => <Settings/>}/>
