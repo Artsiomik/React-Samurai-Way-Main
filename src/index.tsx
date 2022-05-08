@@ -4,18 +4,18 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import {App} from './App';
-import {BrowserRouter} from 'react-router-dom';
+import {HashRouter} from 'react-router-dom';
 
 
 const rerenderEntireTree = (state: StatePropsType) => {
     ReactDOM.render(
         <React.StrictMode>
-            <BrowserRouter>
+            <HashRouter>
                 <App state={state}
                      dispatch={store.dispatch.bind(store)}/>
                 {/*updateNewPostText={store.updateNewPostText.bind(store)}*/}
                 {/*addPost={store.addPost.bind(store)}*/}
-            </BrowserRouter>
+            </HashRouter>
         </React.StrictMode>,
         document.getElementById('root')
     );

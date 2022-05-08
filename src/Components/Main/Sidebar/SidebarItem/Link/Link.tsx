@@ -7,7 +7,7 @@ type PropsType = {
 }
 
 export const Link = (props:PropsType) => {
-    console.log(props.link,'link')
+    console.log(props)
     return (
         <>
             <NavLink to={'/'+props.link} className={style.link}>{props.link}</NavLink>
