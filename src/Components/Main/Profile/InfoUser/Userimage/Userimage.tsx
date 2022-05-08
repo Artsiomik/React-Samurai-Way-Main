@@ -1,6 +1,6 @@
 import React from "react";
 import style from "./Userimage.module.css";
-import Im from "../../../../Images/IMG_3192.jpg";
+import Im from "../../../Messages/DialogMessages/Message1/AvatarOwn/IMG_3192.jpg";
 
 export const Userimage = () => {
     return (

@@ -1,5 +1,5 @@
 import React from "react";
-import avatar from '../../../../../Images/IMG_3192.jpg';
+import avatar from './IMG_3192.jpg';
 import style from './AvatarOwn.module.css'
 
 type PropsType = {
