@@ -1,14 +1,13 @@
-import React from 'react';
+import React, {ChangeEvent} from 'react';
 import {InfoUser} from './InfoUser/InfoUser';
 import {Myposts} from './Myposts/Myposts';
 import {ActionTypes} from '../../../Redux/ReduxStore';
+import {MyPostsContainer} from './Myposts/MyPostsContainer';
 
 
 type PostsDataType = {
     postsData: Array<PostArray>
     newPostText: string
-    // addPost: (postMessage: string) => void
-    // updateNewPostText: (newText: string) => void
     dispatch: (action: ActionTypes) => void
 }
 type PostArray = {
@@ -22,7 +21,7 @@ export const Profile = (props: PostsDataType) => {
     return (
         <>
             <InfoUser/>
-            <Myposts
+            <MyPostsContainer
                 dispatch={props.dispatch}
                 newPostText={props.newPostText}
                 postsData={props.postsData}/>

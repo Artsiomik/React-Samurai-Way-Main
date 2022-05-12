@@ -1,22 +1,21 @@
 import React, {ChangeEvent} from 'react';
 import style from './Myposts.module.css';
 import {Message} from './Message/Message';
-import {addPostAC, OnPostChangeHandlerAC, UpdateNewPostTextAC} from '../../../../Redux/Reducers/PostDataReducer'
-import {ActionTypes} from '../../../../Redux/ReduxStore';
 
-type PostsDataType = {
+type PropsType = {
     postsData: Array<PostArray>
     newPostText: string
-    dispatch: (action: ActionTypes) => void
+    OnPostChangeHandler: (e: ChangeEvent<HTMLTextAreaElement>)=> void
+    addPost: () => void
 }
-type PostArray = {
+export type PostArray = {
     id: number
     post: string
     count: number
 }
 
 
-export const Myposts = (props: PostsDataType) => {
+export const Myposts = (props: PropsType) => {
 
     const newMyPostsElements = props.postsData.map((m) => {
 
@@ -24,13 +23,12 @@ export const Myposts = (props: PostsDataType) => {
     })
 
 
-    const addPost = () => {
-        props.dispatch(addPostAC())
-        props.dispatch(UpdateNewPostTextAC())
+    const onAddPost = () => {
+        props.addPost()
     }
 
     const onPostChangeHandler = (e: ChangeEvent<HTMLTextAreaElement>) => {
-        props.dispatch(OnPostChangeHandlerAC(e))
+        props.OnPostChangeHandler(e)
     }
 
     return (
@@ -40,7 +38,7 @@ export const Myposts = (props: PostsDataType) => {
                       value={props.newPostText}
                       placeholder={'Enter your post...'}/>
             <div className={style.button}>
-                <button onClick={addPost}
+                <button onClick={onAddPost}
                         className={style.send}>Send
                 </button>
             </div>

@@ -9,6 +9,7 @@ import {Settings} from './Settings/Settings';
 import {Route} from 'react-router-dom';
 import {messageDataType} from './Messages/DialogMessages/DialogMessages';
 import {ActionTypes} from '../../Redux/ReduxStore';
+import {DialogsContainer} from './Messages/DialogsContainer';
 
 
 type MainType = {
@@ -40,10 +41,10 @@ export const Main = (props: MainType) => {
                 <Route path="/Profile" render={() => <Profile newPostText={props.newPostText}
                                                               dispatch={props.dispatch}
                                                               postsData={props.postsData}/>}/>
-                <Route path="/Messages" render={() => <Dialogs dialogsData={props.dialogsData}
-                                                               dialogMessages={props.dialogMessages}
-                                                               newMessageText={props.newMessageText}
-                                                               dispatch={props.dispatch}/>}/>
+                <Route path="/Messages" render={() => <DialogsContainer dialogsData={props.dialogsData}
+                                                                        dialogMessages={props.dialogMessages}
+                                                                        newMessageText={props.newMessageText}
+                                                                        dispatch={props.dispatch}/>}/>
                 <Route path="/News" render={() => <News/>}/>
                 <Route path="/Music" render={() => <Music/>}/>
                 <Route path="/Settings" render={() => <Settings/>}/>

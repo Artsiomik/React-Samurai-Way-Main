@@ -2,18 +2,16 @@ import React, {ChangeEvent} from 'react';
 import style from './Dialogs.module.css'
 import {DialogItem} from './DialogItems/DialogItem';
 import {DialogMessages, messageDataType} from './DialogMessages/DialogMessages';
-import {
-    onMessageChangeHandlerAC,
-    sendMessageAC,
-    UpdateNewMessageTextAC
-} from '../../../Redux/Reducers/DialogMessagesReducer'
 import {ActionTypes} from '../../../Redux/ReduxStore';
 
-type DialogsDataType = {
+type PropsType = {
     dialogsData: Array<DialogsDataArray>
     dialogMessages: Array<messageDataType>
     dispatch: (action: ActionTypes) => void
     newMessageText: string
+    sendMessage: () => void
+    onMessageChangeHandler: (e: ChangeEvent<HTMLTextAreaElement>) => void
+
 }
 
 type DialogsDataArray = {
@@ -21,7 +19,7 @@ type DialogsDataArray = {
     name: string
 }
 
-export const Dialogs = (props: DialogsDataType) => {
+export const Dialogs = (props: PropsType) => {
 
     let dialogsItemElements = props.dialogsData.map((dialog) => {
         return (
@@ -30,11 +28,11 @@ export const Dialogs = (props: DialogsDataType) => {
     })
 
     const sendMessageOnClickHandler = () => {
-        props.dispatch(sendMessageAC())
-        props.dispatch(UpdateNewMessageTextAC())
+        props.sendMessage()
+        // props.UpdateNewMessageText()
     }
     const onMessageChangeHandler = (e: ChangeEvent<HTMLTextAreaElement>) => {
-        props.dispatch(onMessageChangeHandlerAC(e))
+        props.onMessageChangeHandler(e)
     }
 
     return (
