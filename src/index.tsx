@@ -1,5 +1,5 @@
 import reportWebVitals from './reportWebVitals';
-import {StatePropsType, store} from './Redux/Store';
+import {AppStoreType, store} from './Redux/ReduxStore';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
@@ -7,14 +7,12 @@ import {App} from './App';
 import {HashRouter} from 'react-router-dom';
 
 
-const rerenderEntireTree = (state: StatePropsType) => {
+const rerenderEntireTree = (state: AppStoreType) => {
     ReactDOM.render(
         <React.StrictMode>
             <HashRouter>
                 <App state={state}
                      dispatch={store.dispatch.bind(store)}/>
-                {/*updateNewPostText={store.updateNewPostText.bind(store)}*/}
-                {/*addPost={store.addPost.bind(store)}*/}
             </HashRouter>
         </React.StrictMode>,
         document.getElementById('root')

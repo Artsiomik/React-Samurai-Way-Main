@@ -1,11 +1,11 @@
 import './App.css';
 import {Header} from './Components/Header/Header';
 import {Main} from './Components/Main/Main';
-import {StatePropsType, ActionTypes} from './Redux/Store';
+import {ActionTypes, AppStoreType} from './Redux/ReduxStore';
 
 
 type AppType = {
-    state: StatePropsType
+    state: AppStoreType
     dispatch: (action: ActionTypes) => void
 }
 
@@ -14,12 +14,12 @@ export const App = (props: AppType) => {
         <div className="wrapper">
             <Header/>
             <Main
-                newMessageText={props.state.newMessageText}
-                newPostText={props.state.newPostText}
+                newMessageText={props.state.dialogMessages.newMessageText}
+                newPostText={props.state.postsData.newPostText}
                 dispatch={props.dispatch}
-                postsData={props.state.postsData}
-                dialogsData={props.state.dialogsData}
-                dialogMessages={props.state.dialogMessages}/>
+                postsData={props.state.postsData.postsData}
+                dialogsData={props.state.dialogsData.dialogsData}
+                dialogMessages={props.state.dialogMessages.dialogMessages}/>
             {/*<Footer/>*/}
         </div>
     )

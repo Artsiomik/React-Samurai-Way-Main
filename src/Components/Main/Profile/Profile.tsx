@@ -1,7 +1,7 @@
 import React from 'react';
 import {InfoUser} from './InfoUser/InfoUser';
 import {Myposts} from './Myposts/Myposts';
-import {ActionTypes} from '../../../Redux/Store';
+import {ActionTypes} from '../../../Redux/ReduxStore';
 
 
 type PostsDataType = {
