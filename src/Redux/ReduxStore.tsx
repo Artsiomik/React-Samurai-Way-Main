@@ -7,8 +7,9 @@ import {
     UpdateNewMessageTextActionType
 } from './Reducers/DialogMessagesReducer';
 
-
 export type ActionTypes = AddPostActionType | UpdateNewPostTextActionType | UpdateNewMessageTextActionType | SendMessageActionType
+
+
 
 const reducers = combineReducers({
     postsData: postDataReducer,
@@ -16,6 +17,7 @@ const reducers = combineReducers({
     dialogMessages: dialogMessagesReducer
 })
 
+
 export const store = createStore(reducers)
 
-export type AppStoreType = ReturnType<typeof reducers>
+export type AppStoreType = ReturnType<typeof reducers>;

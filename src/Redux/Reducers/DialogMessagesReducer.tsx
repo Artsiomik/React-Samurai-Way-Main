@@ -81,7 +81,6 @@ export const sendMessageAC = (): ActionTypes => {
         type: 'SEND-MESSAGE'
     }
 }
-
 export const UpdateNewMessageTextAC = (): ActionTypes => {
     return {
         type: 'UPDATE-NEW-MESSAGE-TEXT',

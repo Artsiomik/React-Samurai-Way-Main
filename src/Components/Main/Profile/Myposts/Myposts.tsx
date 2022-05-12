@@ -1,7 +1,5 @@
-import React, {ChangeEvent, ChangeEventHandler} from 'react';
+import React, {ChangeEvent} from 'react';
 import style from './Myposts.module.css';
-// import {Textarea} from './Textarea/Textarea';
-// import {Button} from './Button/Button';
 import {Message} from './Message/Message';
 import {addPostAC, OnPostChangeHandlerAC, UpdateNewPostTextAC} from '../../../../Redux/Reducers/PostDataReducer'
 import {ActionTypes} from '../../../../Redux/ReduxStore';
