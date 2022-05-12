@@ -2,9 +2,17 @@ import {ChangeEvent} from 'react';
 import {messageDataType} from '../../Components/Main/Messages/DialogMessages/DialogMessages';
 import {ActionTypes} from '../ReduxStore';
 
-type DialogsMessageType = {
-    newMessageText:string
+export type DialogsMessageType = {
+    newMessageText: string
     dialogMessages: Array<messageDataType>
+}
+
+export type UpdateNewMessageTextActionType = {
+    type: 'UPDATE-NEW-MESSAGE-TEXT'
+    newMessageText: string
+}
+export type SendMessageActionType = {
+    type: 'SEND-MESSAGE'
 }
 
 let initialState: DialogsMessageType = {
@@ -68,3 +76,16 @@ export const onMessageChangeHandlerAC = (e: ChangeEvent<HTMLTextAreaElement>): A
         newMessageText: e.currentTarget.value
     } as const
 }
+export const sendMessageAC = (): ActionTypes => {
+    return {
+        type: 'SEND-MESSAGE'
+    }
+}
+
+export const UpdateNewMessageTextAC = (): ActionTypes => {
+    return {
+        type: 'UPDATE-NEW-MESSAGE-TEXT',
+        newMessageText: ''
+    }
+}
+

@@ -1,5 +1,9 @@
 import {ActionTypes} from '../ReduxStore';
 
+export type DialogsArray = {
+    id: number
+    name: string
+}
 
 const initialState = {
     dialogsData: [
@@ -11,9 +15,6 @@ const initialState = {
         {id: 6, name: 'Valera'},
     ]
 }
-
-  
-
 
 export const dialogsDataReducer = (state = initialState, action: ActionTypes) => {
 

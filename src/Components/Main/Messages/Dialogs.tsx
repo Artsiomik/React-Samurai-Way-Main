@@ -2,8 +2,12 @@ import React, {ChangeEvent} from 'react';
 import style from './Dialogs.module.css'
 import {DialogItem} from './DialogItems/DialogItem';
 import {DialogMessages, messageDataType} from './DialogMessages/DialogMessages';
-import {onMessageChangeHandlerAC} from '../../../Redux/Reducers/DialogMessagesReducer'
-import {ActionTypes, sendMessageAC, UpdateNewMessageTextAC} from '../../../Redux/ReduxStore';
+import {
+    onMessageChangeHandlerAC,
+    sendMessageAC,
+    UpdateNewMessageTextAC
+} from '../../../Redux/Reducers/DialogMessagesReducer'
+import {ActionTypes} from '../../../Redux/ReduxStore';
 
 type DialogsDataType = {
     dialogsData: Array<DialogsDataArray>

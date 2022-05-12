@@ -1,9 +1,24 @@
 import {ChangeEvent} from 'react';
-import {ActionTypes, Post} from '../ReduxStore';
+import {ActionTypes, store} from '../ReduxStore';
 
 type StatePostDataType = {
-    newPostText:string
-    postsData:Post[]
+    newPostText: string
+    postsData: Post[]
+}
+
+export type Post = {
+    id: number
+    post: string
+    count: number
+}
+
+export type AddPostActionType = {
+    type: 'ADD-POST'
+    postMessage: string
+}
+export type UpdateNewPostTextActionType = {
+    type: 'UPDATE-NEW-POST-TEXT'
+    newPostText: string
 }
 
 const initialState = {
@@ -15,7 +30,7 @@ const initialState = {
     ]
 }
 
-export const postDataReducer = (state: StatePostDataType = initialState, action: ActionTypes):StatePostDataType => {
+export const postDataReducer = (state: StatePostDataType = initialState, action: ActionTypes): StatePostDataType => {
     switch (action.type) {
         case 'ADD-POST':
             const newMessage: Post = {
@@ -37,4 +52,16 @@ export const OnPostChangeHandlerAC = (e: ChangeEvent<HTMLTextAreaElement>): Acti
         type: 'UPDATE-NEW-POST-TEXT',
         newPostText: e.currentTarget.value
     } as const
+}
+export const UpdateNewPostTextAC = (): ActionTypes => {
+    return {
+        type: 'UPDATE-NEW-POST-TEXT',
+        newPostText: ''
+    }
+}
+export const addPostAC = (): ActionTypes => {
+    return {
+        type: 'ADD-POST',
+        postMessage: store.getState().postsData.newPostText
+    }
 }
