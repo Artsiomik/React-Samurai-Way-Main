@@ -56,15 +56,21 @@ let initialState: DialogsMessageType = {
 
 
 export const dialogMessagesReducer = (state = initialState, action: ActionTypes): DialogsMessageType => {
+
+    let stateCopy = {
+        ...state,
+        dialogMessages: [...state.dialogMessages]
+    }
+
     switch (action.type) {
         case 'UPDATE-NEW-MESSAGE-TEXT':
-            state.newMessageText = action.newMessageText
-            return state
+            stateCopy.newMessageText = action.newMessageText
+            return stateCopy
         case 'SEND-MESSAGE':
             const messageText = state.newMessageText
-            state.newMessageText = ''
-            state.dialogMessages.push({id: 10, message: messageText, author: 'own'})
-            return state
+            stateCopy.dialogMessages.push({id: 10, message: messageText, author: 'own'})
+            stateCopy.newMessageText = ''
+            return stateCopy
         default:
             return state
     }

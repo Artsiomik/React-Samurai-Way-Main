@@ -1,7 +1,7 @@
 import {ChangeEvent} from 'react';
 import {ActionTypes, store} from '../ReduxStore';
 
-type StatePostDataType = {
+export type StatePostDataType = {
     newPostText: string
     postsData: Post[]
 }
@@ -31,18 +31,24 @@ const initialState = {
 }
 
 export const postDataReducer = (state: StatePostDataType = initialState, action: ActionTypes): StatePostDataType => {
+
+    let stateCopy = {
+        ...state,
+        postsData: [...state.postsData]
+    }
+
     switch (action.type) {
         case 'ADD-POST':
             const newMessage: Post = {
                 id: 4,
                 post: action.postMessage,
-                count: 0,
-            }
-            state.postsData.push(newMessage)
-            return state
-        case 'UPDATE-NEW-POST-TEXT':
-            state.newPostText = action.newPostText
-            return state
+                count: 0}
+            stateCopy.postsData.push(newMessage)
+            return stateCopy
+        case
+            'UPDATE-NEW-POST-TEXT':
+            stateCopy.newPostText = action.newPostText
+            return stateCopy
         default:
             return state
     }

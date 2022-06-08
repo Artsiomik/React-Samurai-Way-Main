@@ -9,17 +9,17 @@ type AppType = {
     dispatch: (action: ActionTypes) => void
 }
 
-export const App = (props: AppType) => {
+export const App = () => {
     return (
         <div className="wrapper">
             <Header/>
-            <Main
-                newMessageText={props.state.dialogMessages.newMessageText}
-                newPostText={props.state.postsData.newPostText}
-                dispatch={props.dispatch}
-                postsData={props.state.postsData.postsData}
-                dialogsData={props.state.dialogsData.dialogsData}
-                dialogMessages={props.state.dialogMessages.dialogMessages}/>
+            <Main/>
+                {/*newMessageText={props.state.dialogMessages.newMessageText}*/}
+                {/*newPostText={props.state.postsData.newPostText}*/}
+                {/*dispatch={props.dispatch}*/}
+                {/*postsData={props.state.postsData.postsData}*/}
+                {/*dialogsData={props.state.dialogsData.dialogsData}*/}
+                {/*dialogMessages={props.state.dialogMessages.dialogMessages}*/}
             {/*<Footer/>*/}
         </div>
     )

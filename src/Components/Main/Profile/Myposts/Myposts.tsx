@@ -1,21 +1,10 @@
 import React, {ChangeEvent} from 'react';
 import style from './Myposts.module.css';
 import {Message} from './Message/Message';
-
-type PropsType = {
-    postsData: Array<PostArray>
-    newPostText: string
-    OnPostChangeHandler: (e: ChangeEvent<HTMLTextAreaElement>)=> void
-    addPost: () => void
-}
-export type PostArray = {
-    id: number
-    post: string
-    count: number
-}
+import {MyPostsPropsType} from './MyPostsContainer';
 
 
-export const Myposts = (props: PropsType) => {
+export const Myposts = (props: MyPostsPropsType) => {
 
     const newMyPostsElements = props.postsData.map((m) => {
 

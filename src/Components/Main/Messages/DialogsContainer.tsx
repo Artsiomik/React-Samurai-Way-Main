@@ -5,38 +5,42 @@ import {
     sendMessageAC,
     UpdateNewMessageTextAC
 } from '../../../Redux/Reducers/DialogMessagesReducer'
-import {ActionTypes} from '../../../Redux/ReduxStore';
+import {AppStoreType} from '../../../Redux/ReduxStore';
 import {Dialogs} from './Dialogs';
+import {connect} from 'react-redux';
+import {Dispatch} from 'redux';
+import {DialogsArray} from '../../../Redux/Reducers/DialogsDataReducer';
 
-type PropsType = {
-    dialogsData: Array<DialogsDataArray>
-    dialogMessages: Array<messageDataType>
-    dispatch: (action: ActionTypes) => void
+export type DialogsPropsType = mapStateToPropsType & mapDispatchToPropsType
+
+export type mapStateToPropsType = {
+    dialogsData: DialogsArray[]
     newMessageText: string
+    dialogMessages: messageDataType[]
 }
 
-type DialogsDataArray = {
-    id: number
-    name: string
+export type mapDispatchToPropsType = {
+    sendMessage: () => void
+    onMessageChangeHandler: (e: ChangeEvent<HTMLTextAreaElement>) => void
 }
 
-export const DialogsContainer = (props: PropsType) => {
-
-    const sendMessageOnClickHandler = () => {
-        props.dispatch(sendMessageAC())
-        props.dispatch(UpdateNewMessageTextAC())
+const mapStateToProps = (state: AppStoreType): mapStateToPropsType => {
+    return {
+        dialogsData: state.dialogsData.dialogsData,
+        newMessageText: state.dialogMessages.newMessageText,
+        dialogMessages: state.dialogMessages.dialogMessages
     }
-    const onMessageChangeHandler = (e: ChangeEvent<HTMLTextAreaElement>) => {
-        props.dispatch(onMessageChangeHandlerAC(e))
-    }
-
-    return (
-        <Dialogs
-            sendMessage={sendMessageOnClickHandler}
-            onMessageChangeHandler={onMessageChangeHandler}
-            dialogsData={props.dialogsData}
-            dispatch={props.dispatch}
-            newMessageText={props.newMessageText}
-            dialogMessages={props.dialogMessages}/>
-    )
 }
+const mapDispatchToProps = (dispatch: Dispatch): mapDispatchToPropsType => {
+    return {
+        sendMessage: () => {
+            dispatch(sendMessageAC())
+            dispatch(UpdateNewMessageTextAC())
+        },
+        onMessageChangeHandler: (e: ChangeEvent<HTMLTextAreaElement>) => {
+            dispatch(onMessageChangeHandlerAC(e))
+        }
+    }
+}
+
+export const DialogsContainer = connect(mapStateToProps, mapDispatchToProps)(Dialogs)

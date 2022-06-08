@@ -32,19 +32,21 @@ type MainDialogsArray = {
 }
 
 
-export const Main = (props: MainType) => {
+export const Main = () => {
 
     return (
         <main className={style.main}>
             <SideBar/>
             <section className={style.content}>
-                <Route path="/Profile" render={() => <Profile newPostText={props.newPostText}
-                                                              dispatch={props.dispatch}
-                                                              postsData={props.postsData}/>}/>
-                <Route path="/Messages" render={() => <DialogsContainer dialogsData={props.dialogsData}
-                                                                        dialogMessages={props.dialogMessages}
-                                                                        newMessageText={props.newMessageText}
-                                                                        dispatch={props.dispatch}/>}/>
+                <Route path="/Profile" render={() => <Profile />}/>
+                {/*newPostText={props.newPostText}*/}
+                {/*                                              dispatch={props.dispatch}*/}
+                {/*                                              postsData={props.postsData}*/}
+                <Route path="/Messages" render={() => <DialogsContainer/>}/>
+                {/*dialogsData={props.dialogsData}*/}
+                {/*                                                        dialogMessages={props.dialogMessages}*/}
+                {/*                                                        newMessageText={props.newMessageText}*/}
+                {/*                                                        dispatch={props.dispatch}*/}
                 <Route path="/News" render={() => <News/>}/>
                 <Route path="/Music" render={() => <Music/>}/>
                 <Route path="/Settings" render={() => <Settings/>}/>

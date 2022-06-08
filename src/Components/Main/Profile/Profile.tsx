@@ -16,15 +16,15 @@ type PostArray = {
     count: number
 }
 
-export const Profile = (props: PostsDataType) => {
+export const Profile = () => {
 
     return (
         <>
             <InfoUser/>
-            <MyPostsContainer
-                dispatch={props.dispatch}
-                newPostText={props.newPostText}
-                postsData={props.postsData}/>
+            <MyPostsContainer/>
+                {/*dispatch={props.dispatch}*/}
+                {/*newPostText={props.newPostText}*/}
+                {/*postsData={props.postsData}*/}
         </>
     )
 }

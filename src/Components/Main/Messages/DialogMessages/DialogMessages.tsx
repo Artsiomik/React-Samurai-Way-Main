@@ -9,7 +9,7 @@ import {Message1} from './Message1/Message1';
 }
 
 type DialogMessagesPropsType = {
-    dialogMessages: Array<messageDataType>
+    dialogMessages: messageDataType[]
 }
 
 export const DialogMessages = (props: DialogMessagesPropsType) => {
