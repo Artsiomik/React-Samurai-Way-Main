@@ -31,24 +31,22 @@ const initialState = {
 }
 
 export const postDataReducer = (state: StatePostDataType = initialState, action: ActionTypes): StatePostDataType => {
-
-    let stateCopy = {
-        ...state,
-        postsData: [...state.postsData]
-    }
-
     switch (action.type) {
         case 'ADD-POST':
             const newMessage: Post = {
                 id: 4,
                 post: action.postMessage,
                 count: 0}
-            stateCopy.postsData.push(newMessage)
-            return stateCopy
+            return {
+                ...state,
+                postsData: [...state.postsData, newMessage]
+            }
         case
             'UPDATE-NEW-POST-TEXT':
-            stateCopy.newPostText = action.newPostText
-            return stateCopy
+            return {
+                ...state,
+                newPostText: action.newPostText
+            }
         default:
             return state
     }

@@ -4,7 +4,7 @@ import {ActionTypes} from '../ReduxStore';
 
 export type DialogsMessageType = {
     newMessageText: string
-    dialogMessages: Array<messageDataType>
+    dialogMessages: messageDataType[]
 }
 
 export type UpdateNewMessageTextActionType = {
@@ -56,21 +56,19 @@ let initialState: DialogsMessageType = {
 
 
 export const dialogMessagesReducer = (state = initialState, action: ActionTypes): DialogsMessageType => {
-
-    let stateCopy = {
-        ...state,
-        dialogMessages: [...state.dialogMessages]
-    }
-
     switch (action.type) {
         case 'UPDATE-NEW-MESSAGE-TEXT':
-            stateCopy.newMessageText = action.newMessageText
-            return stateCopy
+            return {
+                ...state,
+                newMessageText: action.newMessageText
+            }
         case 'SEND-MESSAGE':
-            const messageText = state.newMessageText
-            stateCopy.dialogMessages.push({id: 10, message: messageText, author: 'own'})
-            stateCopy.newMessageText = ''
-            return stateCopy
+            const newText = state.newMessageText
+            return {
+                ...state,
+                newMessageText: '',
+                dialogMessages: [...state.dialogMessages, {id: 10, message: newText, author: 'own'}]
+            }
         default:
             return state
     }
